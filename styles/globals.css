@@ -1,9 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: url("/public/fonts/IBMPlexSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBMPlexMono";
+  src: url("/public/fonts/IBMPlexMono-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBMPlexMono";
+  src: url("/public/fonts/IBMPlexMono-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #000000;
 }
 
 a {
@@ -13,4 +38,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* fonts */
+.display {
+  font-family: IBMPlexMono,
 }
