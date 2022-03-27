@@ -9,9 +9,9 @@ import { useWindowSize } from '../src/hooks/useWindowSize';
 export default function Home() {
   return (
     <Container title="Forzanove 09">
-      <div className="grid grid-cols-8 ">
+      <div className="grid grid-cols-8">
         <div className="col-start-2 col-span-6 z-10 flex">
-          <Image src={logo} height={76} width={76} />
+          <Image src={logo} width="76" height="76" />
           <h1 className="text-lg text-white">
             Forza
             <br />
