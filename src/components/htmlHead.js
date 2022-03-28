@@ -1,15 +1,14 @@
 import Head from 'next/head';
 
 export default function (props) {
-    const links = [
-      "../public/fonts/IBMPlexMono-Regular.ttf",
+    const preloadLinks = [
+      "../public/fonts/IBMPlexSans-Regular.ttf",
       "../public/fonts/IBMPlexMono-Regular.ttf",
       "../public/fonts/IBMPlexMono-Medium.ttf",
     ]
-    return(
+    return (
       <Head>
-        {props.preload && 
-          links.map((link,i)=>(
+        {props.preload && preloadLinks.map((link,i) => (
             <link
               rel="preload"
               href={link}
@@ -19,7 +18,7 @@ export default function (props) {
             />
           ))
         }
-        
+  
         <title>{props.title}</title>
       </Head>
     )
