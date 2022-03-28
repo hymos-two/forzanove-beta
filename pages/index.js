@@ -1,69 +1,35 @@
 //components
-import Head from 'next/head';
 import Image from 'next/image';
-
+import Header from '../src/components/header';
+import Section from '../src/components/section';
 import logo from '../public/images/forzanove-logo.png';
-//hooks
-import { useWindowSize } from '../src/hooks/useWindowSize';
+import background from '../public/images/forzanove-bg.png';
 
 export default function Home() {
   return (
-    <Container title="Forzanove 09">
-      <div className="grid grid-cols-8">
-        <div className="col-start-2 col-span-6 z-10 flex">
-          <Image src={logo} width="76" height="76" />
-          <h1 className="text-lg text-white">
-            Forza
-            <br />
-            Nove ⸻ok
-          </h1>
+    <>
+    {/* <Header title="Forzanove 09" preload={false} /> */}
+    <Section>
+      <div className="flex flex-col justify-center bg-red-500 w-full h-full">
+        <div className="grid grid-cols-8">
+          <div className="col-start-2 col-span-6 flex">
+            <div style={{width:76,height:76}}>
+              <Image src={logo} alt="logo" />
+            </div>
+            <div className="pt-4" >
+              <h1 className="text-mono text-20 text-white">
+                Forza
+                <br />
+                Nove ⸻
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
-    </Container>
+    </Section>
+    </>
   );
 }
 
-function Container(props) {
-  const size = useWindowSize();
 
-  return (
-    <div
-      className="font-sans text-white bg-black-100 w-full overflow-scroll"
-      style={{ height: size.height - 1 }}
-    >
-      <Head>
-        {/* <link
-          rel="preload"
-          href="../public/fonts/IBMPlexSans-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="../public/fonts/IBMPlexMono-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="../public/fonts/IBMPlexMono-Medium.ttf"
-          as="font"
-          crossOrigin=""
-        /> */}
-        <title>{props.title}</title>
-      </Head>
 
-      {/* background */}
-      <div className="w-full h-screen absolute bg-[url('../public/images/forzanove-bg.png')] bg-cover bg-center"></div>
-      <div
-        className="bg-black-100 absolute"
-        style={{
-          width: (3 / 8) * size.width,
-          height: size.height,
-        }}
-      ></div>
-
-      {props.children}
-    </div>
-  );
-}
