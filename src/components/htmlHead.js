@@ -18,7 +18,7 @@ export default function (props) {
             />
           ))
         }
-  
+        {/* <script src="https://cdn.tailwindcss.com"></script> */}
         <title>{props.title}</title>
       </Head>
     )
