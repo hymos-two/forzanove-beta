@@ -1,36 +1,32 @@
-import Image from 'next/image';
-import HTMLHead from '../src/components/htmlHead';
-import PageCover from '../src/components/pageCover';
+import Image from 'next/image'
+import HTMLHead from '../components/htmlHead'
+import PageCover from '../components/pageCover'
 
-import logo from '../public/images/forzanove-logo.png';
-
+import background from '../public/images/forzanove-bg.png'
+import logo from '../public/images/forzanove-logo.png'
 
 export default function Home() {
   return (
     <>
-    <HTMLHead title="Forzanove 09" preload />
-    <PageCover title="Forzanove 09">
-      <div className="relative flex flex-col justify-center w-full h-full">
-      <div className="grid grid-cols-8">
-        <div className="col-start-2 col-span-6 z-10 flex">
-
-          <div style={{width:76, height:76}}>
-          <Image src={logo} alt="logo forzanove" />
+    <HTMLHead title="Forzanove 09"/>
+    <PageCover bg={background} >
+      <div className="w-full h-full flex flex-col justify-center">
+        <div className="grid grid-cols 8">
+          <div className="flex col-span-6 col-start-3">
+            <div style={{width:76,height:76,}}>
+              <Image src={logo} />
+            </div>
+            <h1 className="font-mono-m font-medium text-xl text-white/90 mt-2">
+              Forza
+              <br />
+              Nove ⸻
+            </h1>
           </div>
-
-          <h1 className="text-mono text-20 text-white mt-4">
-            Forza
-            <br />
-            Nove ⸻
-          </h1>
-
         </div>
-      </div>
       </div>
     </PageCover>
     </>
-  );
+  )
 }
-
 
 

@@ -4,85 +4,13 @@
 
 @font-face {
   font-family: "IBMPlexSans";
-  src: url("/public/fonts/IBMPlexSans-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  src: url(".././public/fonts/IBMPlexSans-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "IBMPlexMono";
-  src: url("/public/fonts/IBMPlexMono-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-family: "IBMPlexMonoRegular";
+  src: url(".././public/fonts/IBMPlexMono-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "IBMPlexMono";
-  src: url("/public/fonts/IBMPlexMono-Medium.ttf");
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  /* background-color: #000000; */
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* fonts */
-.text-mono {
-  font-family: "IBMPlexMono",sans-serif;
-  font-weight: 400;
-}
-.text-sans-r {
-  font-family: "IBMPlexSans",sans-serif;
-  font-weight: 400;
-}
-.text-sans-m {
-  font-family: "IBMPlexSans",sans-serif;
-  font-weight: 500;
-}
-
-.text-8 {
-  font-size: 8px;
-  line-height: 10px;
-}
-.text-12 {
-  font-size: 12px;
-  line-height: 14px;
-}
-.text-14 {
-  font-size: 14px;
-  line-height: 16px;
-}
-.text-16 {
-  font-size: 16px;
-  line-height: 18px;
-}
-.text-20 {
-  font-size: 20px;
-  line-height: 22px;
-}
-.text-24 {
-  font-size: 24px;
-  line-height: 28px;
-}
-.text-28 {
-  font-size: 28px;
-  line-height: 32px;
-}
-.text-36 {
-  font-size: 36px;
-  line-height: 38px;
+  font-family: "IBMPlexMonoMedium";
+  src: url(".././public/fonts/IBMPlexMono-Medium.ttf") format("truetype");
 }
