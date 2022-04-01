@@ -4,7 +4,7 @@ import {useWindowSize} from '../hooks/useWindowSize'
 function PageCover (props) {
   const size = useWindowSize()
   return (
-    <div 
+    <section 
       className="relative bg-gray-800"
       style={{
         width: size.width,
@@ -53,6 +53,12 @@ function PageCover (props) {
           height: size.height * 0.98,
         }}
       ></div>
+      <div className="absolute -bottom-4 left-2 md:left-6 w-4 h-4 -rotate-90">
+      <span className="inline-block w-max text-mono-r text-xs text-white/20 tracking-wide">
+        {props.sideText}
+      </span>
+      </div>
+      
 
       {/* content area */}
       <div 
@@ -62,12 +68,8 @@ function PageCover (props) {
           height: size.height * 0.9,
         }}
       >{props.children}</div>
-    </div>
+    </section>
   )
-}
-
-function Background () {
-  
 }
 
 export default PageCover;

@@ -11,7 +11,7 @@ module.exports = {
         'sans': ['IBMPlexSans','sans-serif'],
       },
       colors: {
-        accent: '#32e379',
+        accent: 'hsla(144,76%,54%,1)',
         black: {
           100: 'hsla(220,12%,5%,1)',
           200: 'hsla(220,12%,8%,1)',
