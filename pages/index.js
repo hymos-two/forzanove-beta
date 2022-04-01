@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import HTMLHead from '../components/htmlHead'
 import PageCover from '../components/pageCover'
-import {Grid,Container} from '../components/grid'
+import {Grid,Container,Section} from '../components/grid'
 
 import background from '../public/images/forzanove-bg.png'
 import logo from '../public/images/forzanove-logo.png'
@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <>
     <HTMLHead title="Forzanove 09"/>
+    
     <PageCover bg={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" >
       <div className="w-full h-full flex flex-col justify-center">
         <div className="grid grid-cols-8 md:grid-cols-12">
@@ -30,30 +31,26 @@ export default function Home() {
         <Image src={arrow} className="m-auto" />
       </button>
     </PageCover>
-    <Container bgColor="bg-black-400">
-      <Grid cols={1}>
-        <p className="font-mono-r text-center text-base text-white/90">
-        “You want to wake up in the morning and think the future is going to be great - and thats what being a spacefaring civilization is all about.”
-        </p>
-      </Grid>
-    </Container>
 
+    <Section className="bg-black-300 grid place-items-center">
+      <Container>
+        <Grid cols={1}>
+          <div className="col-span-1 px-4 lg:px-24">
+            <p className="font-mono-r text-center text-base leading-7 md:text-lg md:leading-9 text-white/90">
+            “You want to wake up in the morning and think the future is going to be great - 
+            and thats what being a spacefaring civilization is all about.
+            It’s about believing in the future and thinking that the future will be better than the past”
+            <br /><br />
+            - Elon Musk -
+            </p>
+          </div>
+        </Grid>
+      </Container>
+    </Section>
     
-    {/* <section className="w-screen h-screen bg-black-400 grid place-items-center px-8"> 
-      <p className="font-mono-r text-center text-base text-white/90">
-      “You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about.”
-      </p>
-    </section> */}
     </>
   )
 }
- 
-function Section (props) {
-  return (
-    <section>
-      {props.children}
-    </section>
-  )
-}
+
 
 

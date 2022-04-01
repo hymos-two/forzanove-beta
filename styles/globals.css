@@ -14,3 +14,10 @@
   font-family: "IBMPlexMonoMedium";
   src: url(".././public/fonts/IBMPlexMono-Medium.ttf") format("truetype");
 }
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
