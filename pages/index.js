@@ -1,17 +1,33 @@
+import {createRef} from 'react'
 import Image from 'next/image'
 import HTMLHead from '../components/htmlHead'
 import PageCover from '../components/pageCover'
 import {Grid,Container,Section} from '../components/grid'
+import {Button} from '../components/button'
 
 import background from '../public/images/forzanove-bg.png'
 import logo from '../public/images/forzanove-logo.png'
 import arrow from '../public/icons/arrow-up.svg'
 
+import {useWindowSize} from '../hooks/useWindowSize'
+
 export default function Home() {
   return (
     <>
     <HTMLHead title="Forzanove 09"/>
-    
+    <Section1Cover />
+    <Section2Quote />
+    <Section3Events />
+    </>
+  )
+}
+
+
+// ========================================
+// ========== Section 1 Cover
+// ========================================
+function Section1Cover () {
+  return (
     <PageCover bg={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" >
       <div className="w-full h-full flex flex-col justify-center">
         <div className="grid grid-cols-8 md:grid-cols-12">
@@ -27,16 +43,22 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <button className="w-12 h-12 rotate-180 bg-accent hover:bg-zinc-100 absolute right-4 -bottom-6 grid place-items-center">
-        <Image src={arrow} className="m-auto" />
-      </button>
+      <Button icon={arrow} rotateIcon="180" className="absolute right-4 -bottom-6"/>
     </PageCover>
+  )
+}
 
+
+// ========================================
+// ========== Section 2 Quote
+// ========================================
+function Section2Quote () {
+  return (
     <Section className="bg-black-300 grid place-items-center">
       <Container>
         <Grid cols={1}>
-          <div className="col-span-1 px-4 lg:px-24">
-            <p className="font-mono-r text-center text-base leading-7 md:text-lg md:leading-9 text-white/90">
+          <div className="col-span-1 px-4 sm:px-12 lg:px-24">
+            <p className="font-mono-r text-center text-base leading-7 md:text-lg md:leading-9 text-white/80">
             “You want to wake up in the morning and think the future is going to be great - 
             and thats what being a spacefaring civilization is all about.
             It’s about believing in the future and thinking that the future will be better than the past”
@@ -47,10 +69,102 @@ export default function Home() {
         </Grid>
       </Container>
     </Section>
-    
+  )
+}
+
+// ========================================
+// ========== Section 3 Events 
+// ========================================
+function Section3Events () {
+  const size = useWindowSize();
+  return (
+    <>
+    <Section className="bg-black-100 pt-20 lg:pt-24" height="100%">
+      <Container>
+        <Grid cols={1}>
+          <div className="col-span-1 flex gap-2">
+            <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
+              Events
+            </h1>
+            <span className="block flex justify-start items-center">
+              <span className="block w-12 h-0.5 bg-accent"></span>
+            </span>
+          </div>
+        </Grid>
+      </Container>
+
+      <Container>
+        <Grid>
+          <EventsImage width={size.width} className="col-span-4 md:col-span-8 lg:col-span-8 mt-14 mb-14 lg:mt-14 lg:mb-20 relative -left-4 w-screen h-full sm:static sm:w-full"/>
+          <div className="grid place-items-center bg-black/0 lg:bg-black-300 col-span-4 md:col-span-8 lg:col-span-4 lg:p-7 lg:pr-16">
+            <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
+              <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud 
+              </p>
+              <Button text="Lihat Selengkapnya" icon={arrow} rotateIcon="90" className="mt-16"/>
+            </div>
+          </div>
+        </Grid>
+      </Container>
+    </Section>
     </>
   )
 }
 
+function EventsImage (props) {
+  const {className,width} = props
+  const containerClass = `flex gap-2 sm:gap-3 ${className}`
+  function widthSize () {
+    if (width >= 1280) { return (1140 - 36) * 8 / 12 / 4 } 
+    else if (width >= 1024) { return (960 - 36) * 8 / 12 / 4 } 
+    else { return width / 4 }
+  }
+  return (
+    <div className={containerClass} style={{height:widthSize()*3/2*130/100}}>
+      <div 
+        className="relative" 
+        style={{
+          width:widthSize(),
+          height:widthSize()*3/2,
+          top:widthSize()*3/2*5/100,
+          }}
+        >
+        <Image src={background} layout="fill" objectFit="cover"/>
+      </div>
+      <div 
+        className="relative" 
+        style={{
+          width:widthSize(),
+          height:widthSize()*3/2,
+          top:widthSize()*3/2*30/100, 
+          }}
+        >
+        <Image src={background} layout="fill" objectFit="cover"/>
+      </div>
+      <div 
+        className="relative" 
+        style={{
+          width:widthSize(),
+          height:widthSize()*3/2,
+          top:widthSize()*3/2*0, 
+          }}
+        >
+        <Image src={background} layout="fill" objectFit="cover"/>
+      </div>
+      <div 
+        className="relative" 
+        style={{
+          width:widthSize(),
+          height:widthSize()*3/2,
+          top:widthSize()*3/2*15/100, 
+          }}
+        >
+        <Image src={background} layout="fill" objectFit="cover"/>
+      </div>
+    </div>
+  )
+}
 
 
