@@ -5,7 +5,10 @@ import {useWindowSize} from '../hooks/useWindowSize'
 export function Grid (props) {
   const {className,children,cols,gap} = props
   
-  function useGap (value) { return Number.isInteger(value) ? `gap-x-${value/4}` : `gap-x-0`; }
+  function useGap (value) { 
+    if (value == true) return `gap-x-4 lg:gap-x-5`
+    return Number.isInteger(value) ? `gap-x-${value/4}` : `gap-x-0`; 
+  }
 
   const defaultCols = `grid-cols-4 md:grid-cols-8 lg:grid-cols-12`;
   if (Number.isInteger(cols)) {
@@ -44,7 +47,7 @@ export function Container (props) {
 }
 
 export function Section (props) {
-  const {className,children,width,height} = props
+  const {className,children,height} = props
 
   const size = useWindowSize();
   const heightSize = height !== undefined ? height : size.height ;
