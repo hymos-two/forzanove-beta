@@ -23,6 +23,7 @@ export default function Home() {
     <Section4Member />
     <Section5Snapshot />
     <Section6Yearbook />
+    <Footer />
     </>
   )
 }
@@ -98,7 +99,7 @@ function Section3Events () {
       </Container>
 
       <Container>
-        <Grid>
+        <Grid gap={true}>
           <EventsImage className="col-span-4 md:col-span-8 lg:col-span-8 mt-14 mb-14 lg:mt-14 lg:mb-20 relative -left-4 w-screen h-full sm:static sm:w-full"/>
           <div className="grid place-items-center bg-black/0 lg:bg-black-300 col-span-4 md:col-span-8 lg:col-span-4 lg:p-7 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
@@ -154,7 +155,9 @@ function EventsImage (props) {
 // ========== Section 4 Member 
 // ========================================
 
-function Section4Member (props) {
+function Section4Member () {
+  const widthSize = useContentSize()
+
   return (
     <Section className="bg-black-200 pt-20 lg:py-24" height="100%">
       <Container>
@@ -172,9 +175,9 @@ function Section4Member (props) {
 
       <Container>
         <Grid className="lg:grid-flow-col-dense" gap={true}>
-          <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7 my-14 lg:my-0 relative -left-4 sm:left-0 w-screen sm:w-full">
+          <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:my-0 -left-4 sm:left-0 w-screen sm:w-full">
             <div className="absolute right-0 -bottom-4 border-2 border-accent border-r-0 lg:border-r-2 lg:-right-8 h-12 w-36 lg:w-48"></div>
-            <div className="h-[180px] lg:h-[360px] w-full bg-gray-400"></div>
+            <div className="w-full bg-gray-400" style={{height:widthSize*4/5}}></div>
           </div>
 
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
@@ -215,7 +218,7 @@ function Section5Snapshot () {
 
       <Container>
         <Grid className="lg:grid-flow-col-dense" gap={true}>
-          <SnapshotImage className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7 relative mx-5 my-14 lg:m-0"/>
+          <SnapshotImage className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:m-0 grid place-items-center"/>
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
               <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
@@ -232,34 +235,48 @@ function Section5Snapshot () {
   )
 }
 
-function SnapshotImage (props) {
-  const {className} = props
+function useContentSize (size) {
   const {width} = useWindowSize();
   const [widthSize,setWidthSize] = useState(0)
+  //const {def,sm,lg,xl} = size
 
   useEffect(()=>{
     setWidthSize(()=>{
       if (width == undefined) { return 0 } else
-      if (width >= 1280) { return (1140 - 36) * 6 / 12 / 4 } else 
-      if (width >= 1024) { return (960 - 36) * 6 / 12 / 4 } else 
-      { return width / 5 }
+      if (width >= 1280) { return (1140 - (20 * 11)) * 6 / 12} else 
+      if (width >= 1024) { return (960 - (20 * 11)) * 6 / 12} else 
+      if (width >= 640) { return (620 - (16 * 3)) * 5 / 8} else 
+      { return width * 2 / 3 }
     })
   },[width])
 
+  return widthSize;
+}
+
+function SnapshotImage (props) {
+  const {className} = props
+  const widthSize = useContentSize()
+
   return (
     <div className={className}>
-      <div className="absolute w-full h-[105%] flex justify-center">
-          <div className="w-[70%] bg-black-100"></div>
-        </div>
-      <div className="relative w-full grid grid-rows-6 grid-flow-col gap-2 sm:gap-2.5 lg:gap-3">
-        <div className="row-span-2 row-start-2" style={{height:widthSize}}>
-          <div className="bg-gray-400 h-full w-full h-full"></div>
+      <div 
+        className="absolute flex justify-center" 
+        style={{width:widthSize,height:widthSize}}
+      >
+        <div className="w-[70%] bg-black-100"></div>
+      </div>
+      <div 
+        className="relative w-full grid grid-rows-6 grid-flow-col gap-2 sm:gap-2.5 lg:gap-3" 
+        style={{width:widthSize,height:widthSize*90/100}}
+      >
+        <div className="row-span-2 row-start-2">
+          <div className="bg-gray-400 h-full w-full"></div>
         </div>
         <div className="row-span-3 pl-[20%]">
           <div className="bg-gray-400 h-full w-full"></div>
         </div>
-        <div className="row-span-5 pt-[10%]">
-        <div className="bg-gray-400 h-full w-full h-full"></div>
+        <div className="row-span-5">
+          <div className="bg-gray-400 h-full w-full"></div>
         </div>
       </div>
     </div>
@@ -270,7 +287,7 @@ function SnapshotImage (props) {
 // ========== Section 6 Yearbook
 // ========================================
 
-function Section6Yearbook (props) {
+function Section6Yearbook () {
   return (
     <Section className="bg-black-200 pt-20 lg:py-24" height="100%">
       <Container>
@@ -288,7 +305,7 @@ function Section6Yearbook (props) {
 
       <Container>
         <Grid className="lg:grid-flow-col-dense" gap={true}>
-          <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7 my-8 lg:m-0">
+          <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:m-0 sm:p-4 grid place-items-center">
             <Image src={yearbook} alt="yearbook" placeholder="blur"/>
           </div>
 
@@ -305,5 +322,58 @@ function Section6Yearbook (props) {
         </Grid>
       </Container>
     </Section>
+  )
+}
+
+function Footer (props) {
+  if (props.min) {
+    return (
+      <Container fluid className="bg-black-0 py-4 flex justify-center">
+        <div className="w-9 h-9 grayscale opacity-50"><Image src={logo} alt="logo" placeholder="empty" /></div>
+      </Container>
+    )
+  }
+  return (
+    <>
+    <Container fluid className="bg-black-0 text-white py-16">
+      <div className="grid grid-cols-8 md:grid-cols-12 place-items-start">
+        <div className="col-span-2 col-start-2 flex items-center gap-2 opacity-80">
+          <div className="w-9 h-9 grayscale">
+            <Image src={logo} alt="logo"/>
+          </div>
+          <span className="text-base font-mono-m">ForzaNove</span>
+        </div>
+        <div>
+          <span className="text-sm font-mono-m leading-8 text-white/80">Sosial</span>
+          <ul className="text-sm font-sans">
+            <li className="leading-8 text-white/60 hover:underline"><a href="https://www.instagram.com/forzanove.09/" target="_blank">Instagram</a></li>
+            <li className="leading-8 text-white/60 hover:underline"><a href="">Youtube</a></li>
+          </ul>
+        </div>
+        <div>
+          <span className="text-sm font-mono-m leading-8 text-white/80">Kontak</span>
+          <ul className="text-sm font-sans">
+            <li className="leading-8 text-white/60 hover:underline"><a href="https://www.instagram.com/forzanove.09/" target="_blank">forzanove@gmail.com</a></li>
+          </ul>
+        </div>
+        <div className="col-span-4 col-start-8">
+          <span className="text-sm font-mono-m leading-8 text-white/80">Alamat</span>
+          <ul className="text-sm font-sans mt-1">
+            <li className="leading-6 text-white/60 hover:underline">
+              <a href="https://www.instagram.com/forzanove.09/" target="_blank">
+              Muhammadiyah Boarding School Yogyakarta
+              <br/>
+              Jalan Piyungan KM. 2, Marangan, Bokoharjo, Prambanan, Sleman, Daerah Istimewa Yogyakarta 55572
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div></div>
+    </Container>
+    <Container fluid className="bg-black-100 text-center py-4">
+      <span className="font-mono-r text-sm text-white/30">Copyrights © 2022 -- ForzaNove</span>
+    </Container>
+    </>
   )
 }
