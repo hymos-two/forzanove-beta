@@ -53,7 +53,7 @@ export function Section (props) {
   const heightSize = height !== undefined ? height : size.height ;
 
   return (
-    <section className={className} style={{width:size.width,height:heightSize}}>
+    <section className={`overflow-hidden ${className}`} style={{width:"100%",height:heightSize}}>
       {children}
     </section>
   )

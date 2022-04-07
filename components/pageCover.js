@@ -7,7 +7,7 @@ function PageCover (props) {
     <section 
       className="relative bg-gray-800"
       style={{
-        width: size.width,
+        width: '100%',
         height: size.height * 0.9,
       }}
     >
@@ -15,7 +15,7 @@ function PageCover (props) {
       <div 
         className="absolute overflow-hidden grid place-items-end"
         style={{
-          width: size.width,
+          width: '100%',
           height: size.height * 0.9,
         }}
       >
@@ -64,7 +64,7 @@ function PageCover (props) {
       <div 
         className="relative"
         style={{
-          width: size.width,
+          width: '100%',
           height: size.height * 0.9,
         }}
       >{props.children}</div>

@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react'
 import Image from 'next/image'
 import HTMLHead from '../components/htmlHead'
 import PageCover from '../components/pageCover'
+import Footer from '../components/footer'
 import {Grid,Container,Section} from '../components/grid'
 import {Button} from '../components/button'
 
@@ -16,14 +17,14 @@ import {useWindowSize} from '../hooks/useWindowSize'
 export default function Home() {
   return (
     <>
-    <HTMLHead title="Forzanove 09"/>
-    <Section1Cover />
-    <Section2Quote />
-    <Section3Events />
-    <Section4Member />
-    <Section5Snapshot />
-    <Section6Yearbook />
-    <Footer />
+      <HTMLHead title="Forzanove 09"/>
+      <Section1Cover />
+      <Section2Quote />
+      <Section3Events />
+      <Section4Member />
+      <Section5Snapshot />
+      <Section6Yearbook />
+      <Footer />
     </>
   )
 }
@@ -49,7 +50,7 @@ function Section1Cover () {
           </div>
         </div>
       </div>
-      <Button icon={arrow} rotateIcon={180} className="absolute right-4 -bottom-6"/>
+      <Button icon={arrow} rotateIcon={180} className="absolute right-4 -bottom-6 hover:bg-accent hover:cursor-default"/>
     </PageCover>
   )
 }
@@ -64,7 +65,7 @@ function Section2Quote () {
       <Container>
         <Grid cols={1}>
           <div className="col-span-1 px-4 sm:px-12 lg:px-24">
-            <p className="font-mono-r text-center text-base leading-7 md:text-lg md:leading-9 text-white/80">
+            <p className="font-mono-r text-center text-base leading-7 md:text-lg md:leading-9 text-white/60">
             “You want to wake up in the morning and think the future is going to be great - 
             and thats what being a spacefaring civilization is all about.
             It’s about believing in the future and thinking that the future will be better than the past”
@@ -103,7 +104,7 @@ function Section3Events () {
           <EventsImage className="col-span-4 md:col-span-8 lg:col-span-8 mt-14 mb-14 lg:mt-14 lg:mb-20 relative -left-4 w-screen h-full sm:static sm:w-full"/>
           <div className="grid place-items-center bg-black/0 lg:bg-black-300 col-span-4 md:col-span-8 lg:col-span-4 lg:p-7 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
-              <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
+              <p className="text-sans text-sm leading-6 text-white/80 text-center tracking-wide lg:text-left">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
@@ -182,7 +183,7 @@ function Section4Member () {
 
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
-              <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
+              <p className="text-sans text-sm leading-6 text-white/80 text-center tracking-wide lg:text-left">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
@@ -221,7 +222,7 @@ function Section5Snapshot () {
           <SnapshotImage className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:m-0 grid place-items-center"/>
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
-              <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
+              <p className="text-sans text-sm leading-6 text-white/80 text-center tracking-wide lg:text-left">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
@@ -311,7 +312,7 @@ function Section6Yearbook () {
 
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
-              <p className="text-sans text-sm leading-6 text-white/80 text-center lg:text-left">
+              <p className="text-sans text-sm leading-6 text-white/80 text-center tracking-wide lg:text-left">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
@@ -322,58 +323,5 @@ function Section6Yearbook () {
         </Grid>
       </Container>
     </Section>
-  )
-}
-
-function Footer (props) {
-  if (props.min) {
-    return (
-      <Container fluid className="bg-black-0 py-4 flex justify-center">
-        <div className="w-9 h-9 grayscale opacity-50"><Image src={logo} alt="logo" placeholder="empty" /></div>
-      </Container>
-    )
-  }
-  return (
-    <>
-    <Container fluid className="bg-black-0 text-white py-16">
-      <div className="grid grid-cols-8 md:grid-cols-12 place-items-start">
-        <div className="col-span-2 col-start-2 flex items-center gap-2 opacity-80">
-          <div className="w-9 h-9 grayscale">
-            <Image src={logo} alt="logo"/>
-          </div>
-          <span className="text-base font-mono-m">ForzaNove</span>
-        </div>
-        <div>
-          <span className="text-sm font-mono-m leading-8 text-white/80">Sosial</span>
-          <ul className="text-sm font-sans">
-            <li className="leading-8 text-white/60 hover:underline"><a href="https://www.instagram.com/forzanove.09/" target="_blank">Instagram</a></li>
-            <li className="leading-8 text-white/60 hover:underline"><a href="">Youtube</a></li>
-          </ul>
-        </div>
-        <div>
-          <span className="text-sm font-mono-m leading-8 text-white/80">Kontak</span>
-          <ul className="text-sm font-sans">
-            <li className="leading-8 text-white/60 hover:underline"><a href="https://www.instagram.com/forzanove.09/" target="_blank">forzanove@gmail.com</a></li>
-          </ul>
-        </div>
-        <div className="col-span-4 col-start-8">
-          <span className="text-sm font-mono-m leading-8 text-white/80">Alamat</span>
-          <ul className="text-sm font-sans mt-1">
-            <li className="leading-6 text-white/60 hover:underline">
-              <a href="https://www.instagram.com/forzanove.09/" target="_blank">
-              Muhammadiyah Boarding School Yogyakarta
-              <br/>
-              Jalan Piyungan KM. 2, Marangan, Bokoharjo, Prambanan, Sleman, Daerah Istimewa Yogyakarta 55572
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div></div>
-    </Container>
-    <Container fluid className="bg-black-100 text-center py-4">
-      <span className="font-mono-r text-sm text-white/30">Copyrights © 2022 -- ForzaNove</span>
-    </Container>
-    </>
   )
 }
