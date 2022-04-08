@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react'
 import Image from 'next/image'
 import HTMLHead from '../components/htmlHead'
+import Navbar from '../components/navbar'
 import PageCover from '../components/pageCover'
 import Footer from '../components/footer'
 import {Grid,Container,Section} from '../components/grid'
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <>
       <HTMLHead title="Forzanove 09"/>
+      <Navbar active="Home" />
       <Section1Cover />
       <Section2Quote />
       <Section3Events />
@@ -88,13 +90,11 @@ function Section3Events () {
     <Section className="bg-black-100 pt-20 lg:pt-24" height="100%">
       <Container>
         <Grid cols={1}>
-          <div className="col-span-1 flex gap-2">
+          <div className="col-span-1 flex justify-start items-center gap-2">
             <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
               Events
             </h1>
-            <span className="block flex justify-start items-center">
-              <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
-            </span>
+            <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
           </div>
         </Grid>
       </Container>
@@ -163,13 +163,11 @@ function Section4Member () {
     <Section className="bg-black-200 pt-20 lg:py-24" height="100%">
       <Container>
         <Grid cols={1}>
-          <div className="col-span-1 flex gap-2">
+          <div className="col-span-1 flex justify-start items-center gap-2">
             <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
               Member
             </h1>
-            <span className="block flex justify-start items-center">
-              <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
-            </span>
+            <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
           </div>
         </Grid>
       </Container>
@@ -206,13 +204,11 @@ function Section5Snapshot () {
     <Section className="bg-black-300 pt-20 lg:py-24" height="100%">
       <Container>
         <Grid cols={1}>
-          <div className="col-span-1 flex gap-2">
+          <div className="col-span-1 flex justify-start items-center gap-2">
             <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
               Snapshot
             </h1>
-            <span className="block flex justify-start items-center">
-              <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
-            </span>
+            <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
           </div>
         </Grid>
       </Container>
@@ -293,13 +289,11 @@ function Section6Yearbook () {
     <Section className="bg-black-200 pt-20 lg:py-24" height="100%">
       <Container>
         <Grid cols={1}>
-          <div className="col-span-1 flex gap-2">
+          <div className="col-span-1 flex justify-start items-center gap-2">
             <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
               Yearbook
             </h1>
-            <span className="block flex justify-start items-center">
-              <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
-            </span>
+            <span className="block w-12 lg:w-24 h-0.5 bg-accent"></span>
           </div>
         </Grid>
       </Container>
