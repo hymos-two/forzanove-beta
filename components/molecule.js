@@ -5,8 +5,10 @@ export function Logo (props) {
   const {className,imgClass,iconOnly} = props
 
   if (iconOnly) return (
-    <div className={`w-9 h-9 ${imgClass}`}>
-      <Image src={logo} alt="logo" placeholder="empty"/>
+    <div className={className}>
+      <div className={`w-9 h-9 ${imgClass}`}>
+        <Image src={logo} alt="logo" placeholder="empty"/>
+      </div>
     </div>
   )
 

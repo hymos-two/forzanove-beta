@@ -8,7 +8,7 @@ function Footer (props) {
     return (
       <Section height="100%">
       <Container fluid className="bg-black-0 py-4 flex justify-center">
-        <Logo iconOnly imgClass="opacity-50 grayscale"/>
+        <Logo iconOnly className="opacity-50 grayscale"/>
       </Container>
       </Section>
     )
