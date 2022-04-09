@@ -16,7 +16,7 @@ export default function Navbar (props) {
   const isMobile = size.width < 640 ;
 
   if (isMobile) return (
-    <nav className="fixed w-full bg-black-0/70 backdrop-blur z-40" style={{height:!isOpen?56:size.height}}>
+    <nav className={`fixed w-full bg-black-0/70 backdrop-blur z-40 transition-all duration-500`} style={{height:!isOpen?56:size.height}}>
       <div className="flex justify-between items-center px-5 sm:px-8 md:px-12 w-full h-14">
         <Logo iconOnly className="opacity-70" />
         <div className="w-9 h-9 opacity-70" onClick={()=>setOpen(()=>!isOpen)}>
@@ -24,9 +24,11 @@ export default function Navbar (props) {
         </div>
       </div>
       <div className="grid w-full h-full place-items-center">
-        <div className="flex flex-col pb-20">
-          {isOpen && <NavMenu active={active} />}
-        </div>
+        {isOpen && (
+          <div className="flex flex-col pb-20 animate-opcty">
+          <NavMenu active={active} />
+          </div>
+        )}
       </div>
     </nav>
   )

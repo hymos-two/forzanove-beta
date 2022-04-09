@@ -20,6 +20,15 @@ module.exports = {
           500: 'hsla(220,12%,20%,1)',
           0: '#000000',
         },
+        animation: {
+          opcty : 'opcty 2s ease-in infinite',
+        },
+        keyframes: {
+          opcty: {
+            '0%': { opacity: 0 },
+            // '100%': { opacity: 1 },
+          }
+        }
       }
     },
   },
