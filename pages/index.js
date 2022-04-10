@@ -37,7 +37,7 @@ export default function Home() {
 // ========================================
 function Section1Cover () {
   return (
-    <PageCover bg={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" >
+    <PageCover bgImage={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" blackWidthLg='1/3'>
       <div className="w-full h-full flex flex-col justify-center">
         <div className="grid grid-cols-8 md:grid-cols-12">
           <div className="flex col-span-6 col-start-2 md:col-start-3">
@@ -52,7 +52,7 @@ function Section1Cover () {
           </div>
         </div>
       </div>
-      <Button icon={arrow} rotateIcon={180} className="absolute right-4 -bottom-6 hover:bg-accent hover:cursor-default"/>
+      <Button icon={arrow} rotateIcon={180} className="absolute right-4 -bottom-6 hover:bImageg-accent hover:cursor-default"/>
     </PageCover>
   )
 }
@@ -232,24 +232,6 @@ function Section5Snapshot () {
   )
 }
 
-function useContentSize (size) {
-  const {width} = useWindowSize();
-  const [widthSize,setWidthSize] = useState(0)
-  //const {def,sm,lg,xl} = size
-
-  useEffect(()=>{
-    setWidthSize(()=>{
-      if (width == undefined) { return 0 } else
-      if (width >= 1280) { return (1140 - (20 * 11)) * 6 / 12} else 
-      if (width >= 1024) { return (960 - (20 * 11)) * 6 / 12} else 
-      if (width >= 640) { return (620 - (16 * 3)) * 5 / 8} else 
-      { return width * 2 / 3 }
-    })
-  },[width])
-
-  return widthSize;
-}
-
 function SnapshotImage (props) {
   const {className} = props
   const widthSize = useContentSize()
@@ -318,4 +300,30 @@ function Section6Yearbook () {
       </Container>
     </Section>
   )
+}
+
+
+
+
+
+// ========================================
+// ========== Hooks
+// ========================================
+
+function useContentSize () {
+  const {width} = useWindowSize();
+  const [widthSize,setWidthSize] = useState(0)
+  //const {def,sm,lg,xl} = size
+
+  useEffect(()=>{
+    setWidthSize(()=>{
+      if (width == undefined) { return 0 } else
+      if (width >= 1280) { return (1140 - (20 * 11)) * 6 / 12} else 
+      if (width >= 1024) { return (960 - (20 * 11)) * 6 / 12} else 
+      if (width >= 640) { return (620 - (16 * 3)) * 5 / 8} else 
+      { return width * 2 / 3 }
+    })
+  },[width])
+
+  return widthSize;
 }

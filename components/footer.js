@@ -1,9 +1,7 @@
-import Image from 'next/image'
 import {Section,Container} from './grid'
-import logo from '../public/images/forzanove-logo.png'
 import {Logo} from './molecule'
 
-function Footer (props) {
+export default function Footer (props) {
   if (props.min) {
     return (
       <Section height="100%">
@@ -63,5 +61,3 @@ function Footer (props) {
     </Section>
   )
 }
-
-export default Footer;

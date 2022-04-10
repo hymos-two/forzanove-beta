@@ -1,7 +1,5 @@
 import {useWindowSize} from '../hooks/useWindowSize'
 
-
-
 export function Grid (props) {
   const {className,children,cols,gap} = props
   

@@ -1,75 +1,44 @@
 import Image from 'next/image';
 import {useWindowSize} from '../hooks/useWindowSize'
 
-function PageCover (props) {
+export default function PageCover (props) {
+  const {
+    bgImage,
+    children,
+    blackWidthLg,
+    sideText,
+  } = props
+
   const size = useWindowSize()
+
   return (
     <section 
-      className="relative bg-gray-800"
-      style={{
-        width: '100%',
-        height: size.height * 0.9,
-      }}
+      className="relative bg-black-100 w-full"
+      style={{height:size.height*0.9}}
     >
-      {/* background container */}
-      <div 
-        className="absolute overflow-hidden grid place-items-end"
-        style={{
-          width: '100%',
-          height: size.height * 0.9,
-        }}
-      >
-        {/* set window ratio */}
-        {1920/1136*0.9 >= size.width/size.height*0.9
-        ? <div 
-          className="bg-black"
-          style={{
-            width: size.height * 0.9 * (1920 / 1136),
-            height: size.height * 0.9,
-          }}><Image src={props.bg} alt="background"/>
-          </div>
-        : <div 
-          className="bg-black"
-          style={{
-            width: size.width,
-            height: size.width * (1136 / 1920),
-          }}><Image src={props.bg} alt="background"/>
-          </div>
-        }
+      {/* background image */}
+      <div className="absolute w-full h-full bg-black-200">
+        {bgImage && <Image src={bgImage} layout="fill" objectFit="cover"/>}
       </div>
-      
-      {/* black background area */}
-      <div 
-        className="absolute bg-black-100 lg:hidden"
-        style={{
-          width: size.width * (3 / 8),
-          height: size.height * 0.98,
-        }}
-      ></div>
-      <div 
-        className="absolute bg-black-100 hidden lg:block"
-        style={{
-          width: size.width * (7 / 24),
-          height: size.height * 0.98,
-        }}
-      ></div>
-      <div className="absolute -bottom-4 left-2 md:left-6 w-4 h-4 -rotate-90">
-      <span className="inline-block w-max text-mono-r text-xs text-white/20 tracking-wide">
-        {props.sideText}
-      </span>
-      </div>
-      
 
-      {/* content area */}
-      <div 
-        className="relative"
-        style={{
-          width: '100%',
-          height: size.height * 0.9,
-        }}
-      >{props.children}</div>
+      {/* black background area */}
+      <div className={`absolute bg-black-100 h-[108%] w-[37.5%] lg:w-${blackWidthLg?blackWidthLg:'1/3'}`}>
+        <div className="absolute bottom-6 left-2 md:left-6 w-4 h-4 -rotate-90">
+          <span className="inline-block w-max text-mono-r text-xs text-white/20 tracking-wide">
+            {sideText}
+          </span>
+        </div>
+      </div>
+
+      {/* content */}
+      <div className="relative w-full h-full z-10">
+        {children}
+      </div>
+
     </section>
   )
 }
 
-export default PageCover;
+/* <video autoplay muted loop className="object-cover">         
+  <source src="./video-1.mp4" type="video/mp4"/>       
+</video> */

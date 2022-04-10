@@ -20,16 +20,16 @@ module.exports = {
           500: 'hsla(220,12%,20%,1)',
           0: '#000000',
         },
-        animation: {
-          opcty : 'opcty 2s ease-in infinite',
+      },
+      animation: {
+        fadeIn : 'fadeIn 1s ease-in',
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
         },
-        keyframes: {
-          opcty: {
-            '0%': { opacity: 0 },
-            // '100%': { opacity: 1 },
-          }
-        }
-      }
+      },
     },
   },
   plugins: [],
