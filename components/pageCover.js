@@ -5,7 +5,7 @@ export default function PageCover (props) {
   const {
     bgImage,
     children,
-    blackWidthLg,
+    isHome,
     sideText,
   } = props
 
@@ -22,7 +22,7 @@ export default function PageCover (props) {
       </div>
 
       {/* black background area */}
-      <div className={`absolute bg-black-100 h-[108%] w-[37.5%] lg:w-${blackWidthLg?blackWidthLg:'1/3'}`}>
+      <div className={`absolute bg-black-100 h-[108%] w-[37.5%] ${isHome?'lg:w-1/3':'lg:w-1/4'}`}>
         <div className="absolute bottom-6 left-2 md:left-6 w-4 h-4 -rotate-90">
           <span className="inline-block w-max text-mono-r text-xs text-white/20 tracking-wide">
             {sideText}

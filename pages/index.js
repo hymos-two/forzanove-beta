@@ -37,7 +37,7 @@ export default function Home() {
 // ========================================
 function Section1Cover () {
   return (
-    <PageCover bgImage={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" blackWidthLg='1/3'>
+    <PageCover bgImage={background} sideText=" ⸻ Angkatan IX SMA Muhammadiyah Boarding School Yogyakarta ⸻⸻" isHome >
       <div className="w-full h-full flex flex-col justify-center">
         <div className="grid grid-cols-8 md:grid-cols-12">
           <div className="flex col-span-6 col-start-2 md:col-start-3">
