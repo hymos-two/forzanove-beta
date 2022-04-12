@@ -6,9 +6,12 @@ import PageCover from '../components/pageCover'
 import Footer from '../components/footer'
 import {Grid,Container,Section} from '../components/grid'
 import {Button} from '../components/button'
+import {Tile} from '../components/tile'
 
 import wisudaImg from '../public/images/events/wisuda.jpg'
 import arrow from '../public/icons/arrow-up.svg'
+
+import {ArrowIcon} from '../public/icons/icons'
 
 
 export default function Events () {
@@ -17,6 +20,7 @@ export default function Events () {
       <HTMLHead title="Events | Forzanove 09"/>
       <Navbar active="Events" />
       <Section1Cover />
+      <Section2Content />
       <Footer min />
     </>
   )
@@ -56,32 +60,68 @@ function Section1Cover (props) {
 
           <div className="w-full relative -mt-16 md:mt-0">
             <h2 className="text-mono-r text-xl text-white/80 ml-3 z-20">Wisuda <br/>Angkatan IX</h2>
-            <Button text="Lihat Foto" icon={arrow} rotateIcon={90} className="mt-6"/>
+            <Button 
+              target="/" 
+              text="Lihat Foto" 
+              icon={<ArrowIcon color="black" rotate={90}/>} 
+              className="mt-6"
+            />
           </div>
           
         </div>
 
-
-
-
-        {/* <div className="grid grid-cols-8 md:grid-cols-12">
-
-          <div className="relative col-span-7 md:col-span-4 grid grid-flow-col grid-cols-7 md:grid-cols-4">
-            <span className="block col-span-2 w-[85%] h-1 bg-accent mt-3"></span>
-            <div className="col-span-5 lg:col-span-3">
-              <h1 className="text-mono-m text-2xl md:text-[28px] text-white/90">
-                Events
-              </h1>
-              <p className="text-sans text-sm leading-6 text-white/80 text-left tracking-wide mt-2 md:mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt
-              </p>
-            </div>
-          </div>
-
-          <div className="col-span-6 md:col-span-9 md:col-start-4 h-20 bg-red-100"></div>
-        </div> */}
       </div>
     </PageCover>
+  )
+}
+
+
+const contents = [
+  {
+    title: "Bakti Sosial"
+  },
+  {
+    title: "Bagi Takjil"
+  },
+  {
+    title: "Gebyar Bakat Santri 6"
+  },
+  {
+    title: "Outbond Kelas 12"
+  },
+  {
+    title: "Bakti Sosial"
+  },
+  {
+    title: "Bagi Takjil"
+  },
+  {
+    title: "Gebyar Bakat Santri 6"
+  },
+  {
+    title: "Outbond Kelas 12"
+  },
+]
+
+
+
+function Section2Content () {
+  return (
+    <Section className="bg-black-200 py-28">
+      <Container>
+        <Grid>
+          <div className="col-span-4 sm:col-span-8 lg:col-span-10 grid grid-cols-2 sm:grid-cols-4 lg:col-start-2 gap-x-4 gap-y-10 sm:gap-x-3.5">
+            {contents.map((value,i)=>(
+              <Tile 
+                title={value.title}
+                target=""
+                className={i % 2 == 0 ? "" : "pt-6 sm:pt-8" }
+                key={i}
+              />
+            ))}
+          </div>
+        </Grid>
+      </Container>
+    </Section>
   )
 }

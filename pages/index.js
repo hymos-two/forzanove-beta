@@ -10,10 +10,11 @@ import {Button} from '../components/button'
 import background from '../public/images/forzanove-bg.png'
 import logo from '../public/images/forzanove-logo.png'
 import yearbook from '../public/images/yearbook.png'
-import arrow from '../public/icons/arrow-up.svg'
-import download from '../public/icons/download.svg'
 
-import {useWindowSize} from '../hooks/useWindowSize'
+import {
+  ArrowIcon,
+  DownloadIcon,
+} from '../public/icons/icons'
 
 export default function Home() {
   return (
@@ -52,7 +53,10 @@ function Section1Cover () {
           </div>
         </div>
       </div>
-      <Button icon={arrow} rotateIcon={180} className="absolute right-4 -bottom-6 hover:bImageg-accent hover:cursor-default"/>
+      <Button disabled 
+        icon={<ArrowIcon color="black" rotate={180}/>} 
+        className="absolute right-4 -bottom-6"
+      />
     </PageCover>
   )
 }
@@ -63,7 +67,7 @@ function Section1Cover () {
 // ========================================
 function Section2Quote () {
   return (
-    <Section className="bg-black-300 grid place-items-center">
+    <Section className="bg-black-300 grid place-items-center" height="100vh">
       <Container>
         <Grid cols={1}>
           <div className="col-span-1 px-4 sm:px-12 lg:px-24">
@@ -100,8 +104,16 @@ function Section3Events () {
       </Container>
 
       <Container>
-        <Grid gap={true}>
-          <EventsImage className="col-span-4 md:col-span-8 lg:col-span-8 mt-14 mb-14 lg:mt-14 lg:mb-20 relative -left-4 w-screen h-full sm:static sm:w-full"/>
+        <Grid>
+
+          <div className="col-span-4 md:col-span-8 lg:col-span-8 my-14 lg:mt-14 lg:mb-20 grid grid-flow-col gap-2 sm:gap-3 relative -left-4 w-screen sm:static sm:w-full">
+            {["5%","30%","0%","15%"].map((value,i)=>(
+              <div className="relative w-full aspect-[3/5] bg-gray-500" style={{marginTop:value}} key={i}>
+                <Image src={background} layout="fill" objectFit="cover" placeholder="blur"/>
+              </div>
+            ))}
+          </div>
+          
           <div className="grid place-items-center bg-black/0 lg:bg-black-300 col-span-4 md:col-span-8 lg:col-span-4 lg:p-7 lg:pr-16">
             <div className="grid place-items-center px-3 sm:px-12 lg:px-0 lg:block">
               <p className="text-sans text-sm leading-6 text-white/80 text-center tracking-wide lg:text-left">
@@ -109,7 +121,12 @@ function Section3Events () {
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
               </p>
-              <Button text="Lihat Selengkapnya" icon={arrow} rotateIcon={90} className="mt-16"/>
+              <Button
+                target="/events" 
+                text="Lihat Selengkapnya" 
+                icon={<ArrowIcon color="black" rotate={90}/>} 
+                className="mt-16"
+              />
             </div>
           </div>
         </Grid>
@@ -119,46 +136,12 @@ function Section3Events () {
   )
 }
 
-function EventsImage (props) {
-  const {className} = props
-  const {width} = useWindowSize();
-  const [widthSize,setWidthSize] = useState(0)
-
-  useEffect(()=>{
-    setWidthSize(()=>{
-      if (width == undefined) { return 0 } else
-      if (width >= 1280) { return (1140 - 36) * 8 / 12 / 4 } else 
-      if (width >= 1024) { return (960 - 36) * 8 / 12 / 4 } else 
-      { return width / 4 }
-    })
-  },[width])
-
-  const divImgStyle = (offsetTop) => ({
-    width:widthSize,
-    height:widthSize*3/2,
-    top:widthSize*3/2*offsetTop/100,
-  })
-  const containerClass = `flex gap-2 sm:gap-3 ${className}`
-  return (
-    <div className={containerClass} style={{height:widthSize*3/2*130/100}}>
-      {[5,30,0,15].map((value,i) => (
-        <div className="relative" style={divImgStyle(value)} key={i}>
-          <Image src={background} layout="fill" objectFit="cover" placeholder="blur"/>
-        </div>
-      ))
-      }
-    </div>
-  )
-}
-
 
 // ========================================
 // ========== Section 4 Member 
 // ========================================
 
 function Section4Member () {
-  const widthSize = useContentSize()
-
   return (
     <Section className="bg-black-200 pt-20 lg:py-24" height="100%">
       <Container>
@@ -176,7 +159,7 @@ function Section4Member () {
         <Grid className="lg:grid-flow-col-dense" gap={true}>
           <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:my-0 -left-4 sm:left-0 w-screen sm:w-full">
             <div className="absolute right-0 -bottom-4 border-2 border-accent border-r-0 lg:border-r-2 lg:-right-8 h-12 w-36 lg:w-48"></div>
-            <div className="w-full bg-gray-400" style={{height:widthSize*4/5}}></div>
+            <div className="w-full bg-gray-400 aspect-[16/10]"></div>
           </div>
 
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
@@ -186,7 +169,12 @@ function Section4Member () {
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
               </p>
-              <Button text="Lihat Selengkapnya" icon={arrow} rotateIcon={90} className="mt-16"/>
+              <Button 
+                target="/" 
+                text="Lihat Selengkapnya" 
+                icon={<ArrowIcon color="black" rotate={90}/>} 
+                className="mt-16"
+              />
             </div>
           </div>
         </Grid>
@@ -223,7 +211,11 @@ function Section5Snapshot () {
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
               </p>
-              <Button text="Lihat Selengkapnya" icon={arrow} rotateIcon={90} className="mt-16"/>
+              <Button 
+                target="/" 
+                text="Lihat Selengkapnya" 
+                icon={<ArrowIcon color="black" rotate={90}/>} 
+                className="mt-16"/>
             </div>
           </div>
         </Grid>
@@ -234,20 +226,12 @@ function Section5Snapshot () {
 
 function SnapshotImage (props) {
   const {className} = props
-  const widthSize = useContentSize()
-
   return (
     <div className={className}>
-      <div 
-        className="absolute flex justify-center" 
-        style={{width:widthSize,height:widthSize}}
-      >
+      <div className="absolute flex justify-center w-4/5 sm:w-2/3 lg:w-full h-[110%]" >
         <div className="w-[70%] bg-black-100"></div>
       </div>
-      <div 
-        className="relative w-full grid grid-rows-6 grid-flow-col gap-2 sm:gap-2.5 lg:gap-3" 
-        style={{width:widthSize,height:widthSize*90/100}}
-      >
+      <div className="relative w-4/5 sm:w-2/3 lg:w-full aspect-[4/3] grid grid-rows-6 grid-flow-col gap-2 sm:gap-2.5 lg:gap-3" >
         <div className="row-span-2 row-start-2">
           <div className="bg-gray-400 h-full w-full"></div>
         </div>
@@ -283,7 +267,9 @@ function Section6Yearbook () {
       <Container>
         <Grid className="lg:grid-flow-col-dense" gap={true}>
           <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-7 relative my-14 lg:m-0 sm:p-4 grid place-items-center">
-            <Image src={yearbook} alt="yearbook" placeholder="blur"/>
+            <div className="w-4/5 sm:w-2/3 lg:w-full">
+              <Image src={yearbook} alt="yearbook" placeholder="blur"/>
+            </div>
           </div>
 
           <div className="grid place-items-center col-span-4 md:col-span-8 lg:col-span-4 lg:pr-16">
@@ -293,37 +279,16 @@ function Section6Yearbook () {
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud 
               </p>
-              <Button secondary text="Download E-Book" icon={download} className="mt-16"/>
+              <Button secondary 
+                target="/" 
+                text="Download E-Book" 
+                icon={<DownloadIcon color="white"/>} 
+                className="mt-16"
+              />
             </div>
           </div>
         </Grid>
       </Container>
     </Section>
   )
-}
-
-
-
-
-
-// ========================================
-// ========== Hooks
-// ========================================
-
-function useContentSize () {
-  const {width} = useWindowSize();
-  const [widthSize,setWidthSize] = useState(0)
-  //const {def,sm,lg,xl} = size
-
-  useEffect(()=>{
-    setWidthSize(()=>{
-      if (width == undefined) { return 0 } else
-      if (width >= 1280) { return (1140 - (20 * 11)) * 6 / 12} else 
-      if (width >= 1024) { return (960 - (20 * 11)) * 6 / 12} else 
-      if (width >= 640) { return (620 - (16 * 3)) * 5 / 8} else 
-      { return width * 2 / 3 }
-    })
-  },[width])
-
-  return widthSize;
 }

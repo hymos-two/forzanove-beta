@@ -1,4 +1,4 @@
-import {useWindowSize} from '../hooks/useWindowSize'
+// import {useWindowSize} from '../hooks/useWindowSize'
 
 export function Grid (props) {
   const {className,children,cols,gap} = props
@@ -20,7 +20,7 @@ export function Grid (props) {
   const classes = `grid ${defaultCols} ${useGap(gap)} ${className} `;
   return (
     <div className={classes}>
-      {props.children}
+      {children}
     </div>
   )
 }
@@ -47,8 +47,8 @@ export function Container (props) {
 export function Section (props) {
   const {className,children,height} = props
 
-  const size = useWindowSize();
-  const heightSize = height !== undefined ? height : size.height ;
+  // const size = useWindowSize();
+  const heightSize = height !== undefined ? height : "100%" ;
 
   return (
     <section className={`overflow-hidden ${className}`} style={{width:"100%",height:heightSize}}>

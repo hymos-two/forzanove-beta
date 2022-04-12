@@ -17,7 +17,7 @@ export default function PageCover (props) {
       style={{height:size.height*0.9}}
     >
       {/* background image */}
-      <div className="absolute w-full h-full bg-black-200">
+      <div className="absolute w-full h-full">
         {bgImage && <Image src={bgImage} layout="fill" objectFit="cover"/>}
       </div>
 
