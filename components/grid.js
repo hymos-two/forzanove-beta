@@ -4,8 +4,9 @@ export function Grid (props) {
   const {className,children,cols,gap} = props
   
   function useGap (value) { 
-    if (value == true) return `gap-x-4 lg:gap-x-5`
-    return Number.isInteger(value) ? `gap-x-${value/4}` : `gap-x-0`; 
+    if (Number.isInteger(value)) return `gap-x-${value/4}`
+    if (value == false) return `gap-x-0` 
+    return `gap-x-4 lg:gap-x-5`
   }
 
   const defaultCols = `grid-cols-4 md:grid-cols-8 lg:grid-cols-12`;

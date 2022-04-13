@@ -112,7 +112,7 @@ function Section2Content () {
             {contents.map((value,i)=>(
               <Tile 
                 title={value.title}
-                target=""
+                target="/events/hello-world"
                 btnText="lihat foto"
                 icon={<ArrowIcon rotate={90}/>} 
                 className={i % 2 == 0 ? "" : "mt-[16%]" }

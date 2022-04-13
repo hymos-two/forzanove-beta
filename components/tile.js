@@ -4,7 +4,7 @@ export function Tile (props) {
   const {title,btnText,icon,image,target,className} = props
 
   return (
-    <Link href="">
+    <Link href={target}>
       <div className={`group bg-black-400 aspect-[6/13] hover:bg-accent hover:cursor-pointer ${className}`}>
         <div className="relative w-full aspect-[6/8] bg-gray-200">
           <div className="absolute w-full h-full group-hover:bg-black-0/50"></div>
