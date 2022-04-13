@@ -1,17 +1,15 @@
 import {useState,useEffect} from 'react'
 import Image from 'next/image'
-import HTMLHead from '../components/htmlHead'
-import Navbar from '../components/navbar'
-import PageCover from '../components/pageCover'
-import Footer from '../components/footer'
-import {Grid,Container,Section} from '../components/grid'
-import {Button} from '../components/button'
-import {Tile} from '../components/tile'
+import HTMLHead from '../../components/htmlHead'
+import Navbar from '../../components/navbar'
+import PageCover from '../../components/pageCover'
+import Footer from '../../components/footer'
+import {Grid,Container,Section} from '../../components/grid'
+import {Button} from '../../components/button'
+import {Tile} from '../../components/tile'
 
-import wisudaImg from '../public/images/events/wisuda.jpg'
-import arrow from '../public/icons/arrow-up.svg'
-
-import {ArrowIcon} from '../public/icons/icons'
+import wisudaImg from '../../public/images/events/wisuda.jpg'
+import {ArrowIcon} from '../../components/icons'
 
 
 export default function Events () {
@@ -110,12 +108,14 @@ function Section2Content () {
     <Section className="bg-black-200 py-28">
       <Container>
         <Grid>
-          <div className="col-span-4 sm:col-span-8 lg:col-span-10 grid grid-cols-2 sm:grid-cols-4 lg:col-start-2 gap-x-4 gap-y-10 sm:gap-x-3.5">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-10 grid grid-cols-2 sm:grid-cols-4 lg:col-start-2 gap-x-4 gap-y-16 sm:gap-x-3.5">
             {contents.map((value,i)=>(
               <Tile 
                 title={value.title}
                 target=""
-                className={i % 2 == 0 ? "" : "pt-6 sm:pt-8" }
+                btnText="lihat foto"
+                icon={<ArrowIcon rotate={90}/>} 
+                className={i % 2 == 0 ? "" : "mt-[16%]" }
                 key={i}
               />
             ))}

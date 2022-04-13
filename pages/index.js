@@ -14,7 +14,7 @@ import yearbook from '../public/images/yearbook.png'
 import {
   ArrowIcon,
   DownloadIcon,
-} from '../public/icons/icons'
+} from '../components/icons'
 
 export default function Home() {
   return (
