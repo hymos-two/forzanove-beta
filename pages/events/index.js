@@ -112,6 +112,7 @@ function Section2Content () {
             {contents.map((value,i)=>(
               <Tile 
                 title={value.title}
+                image={true}
                 target="/events/hello-world"
                 btnText="lihat foto"
                 icon={<ArrowIcon right/>} 
