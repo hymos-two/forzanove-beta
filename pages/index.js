@@ -43,7 +43,7 @@ function Section1Cover () {
         <div className="grid grid-cols-8 md:grid-cols-12">
           <div className="flex col-span-6 col-start-2 md:col-start-3">
             <div className="w-[76px] h-[76px] md:w-[136px] md:h-[136px]">
-              <Image src={logo} />
+              <Image src={logo} placeholder="empty"/>
             </div>
             <h1 className="font-mono-m font-medium text-white text-xl md:text-4xl mt-2 md:mt-6">
               Forza
@@ -54,7 +54,7 @@ function Section1Cover () {
         </div>
       </div>
       <Button disabled 
-        icon={<ArrowIcon rotate={180}/>} 
+        icon={<ArrowIcon down />} 
         className="absolute right-4 -bottom-6"
       />
     </PageCover>
@@ -117,7 +117,7 @@ function Section3Events () {
               <Button
                 target="/events" 
                 text="Lihat Selengkapnya" 
-                icon={<ArrowIcon rotate={90}/>} 
+                icon={<ArrowIcon right/>} 
                 className="mt-16"
               />
             </div>
@@ -158,7 +158,7 @@ function Section4Member () {
               <Button 
                 target="/" 
                 text="Lihat Selengkapnya" 
-                icon={<ArrowIcon rotate={90}/>} 
+                icon={<ArrowIcon right/>} 
                 className="mt-16"
               />
             </div>
@@ -210,7 +210,7 @@ function Section5Snapshot () {
               <Button 
                 target="/" 
                 text="Lihat Selengkapnya" 
-                icon={<ArrowIcon rotate={90}/>} 
+                icon={<ArrowIcon right/>} 
                 className="mt-16"/>
             </div>
           </div>

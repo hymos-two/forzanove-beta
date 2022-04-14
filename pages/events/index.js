@@ -41,7 +41,7 @@ function Section1Cover (props) {
                 Events
               </h1>
               <p className="text-sans text-sm leading-6 text-white/80 text-left tracking-wide mt-2 md:mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt
               </p>
             </div>
@@ -53,7 +53,7 @@ function Section1Cover (props) {
 
           <div className="w-full h-4/5 md:w-[175%] md:h-full relative bg-red-100 grayscale-[80%]">
             <div className="absolute w-full h-full bg-gradient-to-r from-black-0/70 z-10"></div>
-            <Image src={wisudaImg} layout="fill" objectFit="cover" />
+            <Image src={wisudaImg} layout="fill" objectFit="cover" placeholder="blur" />
           </div>
 
           <div className="w-full relative -mt-16 md:mt-0">
@@ -61,7 +61,7 @@ function Section1Cover (props) {
             <Button 
               target="/" 
               text="Lihat Foto" 
-              icon={<ArrowIcon color="black" rotate={90}/>} 
+              icon={<ArrowIcon right/>} 
               className="mt-6"
             />
           </div>
@@ -114,7 +114,7 @@ function Section2Content () {
                 title={value.title}
                 target="/events/hello-world"
                 btnText="lihat foto"
-                icon={<ArrowIcon rotate={90}/>} 
+                icon={<ArrowIcon right/>} 
                 className={i % 2 == 0 ? "" : "mt-[16%]" }
                 key={i}
               />
