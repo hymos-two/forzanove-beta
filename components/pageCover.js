@@ -13,7 +13,7 @@ export default function PageCover (props) {
 
   return (
     <section 
-      className="relative bg-black-100 w-full"
+      className="relative bg-black-200 w-full"
       style={{height:size.height*0.9}}
     >
       {/* background image */}

@@ -23,13 +23,15 @@ export default function Navbar (props) {
           <Image src={!isOpen?menu:close}  alt="menu" placeholder="empty"/>
         </div>
       </div>
+      
+      {isOpen && (
       <div className="grid w-full h-full place-items-center">
-        {isOpen && (
-          <div className="flex flex-col pb-20 animate-fadeIn delay-600">
+        <div className="flex flex-col pb-20 animate-fadeIn delay-600">
           <NavMenu active={active} />
-          </div>
-        )}
+        </div>
       </div>
+      )}
+      
     </nav>
   )
 
@@ -75,8 +77,8 @@ function NavMenu (props) {
     <>
     {navItems.map((value,i)=>(
       <Link href={value.target} key={i}>
-        <a className="h-14 px-4 font-mono-r text-base sm:text-sm text-white/70 hover:text-white hover:bg-white/10 relative grid place-items-center">
-          <span>{value.name}</span>
+        <a className="h-14 px-4 group hover:bg-white/10 relative grid place-items-center">
+          <span className="font-mono-r text-base sm:text-sm text-white/70 group-hover:text-white">{value.name}</span>
           {value.isActive && <span className="absolute block h-0.5 w-[70%] bg-accent/60"></span>}
         </a>
       </Link>

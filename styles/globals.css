@@ -15,6 +15,9 @@
   src: url(".././public/fonts/IBMPlexMono-Medium.ttf") format("truetype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: hsla(220,12%,2%,1);

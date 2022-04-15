@@ -46,13 +46,13 @@ export function Container (props) {
 }
 
 export function Section (props) {
-  const {className,children,height} = props
+  const {id,className,children,height} = props
 
   // const size = useWindowSize();
   const heightSize = height !== undefined ? height : "100%" ;
 
   return (
-    <section className={`overflow-hidden ${className}`} style={{width:"100%",height:heightSize}}>
+    <section id={id} className={`overflow-hidden ${className}`} style={{width:"100%",height:heightSize}}>
       {children}
     </section>
   )

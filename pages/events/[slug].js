@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
 import HTMLHead from '../../components/htmlHead'
-import Navbar from '../../components/navbar'
+
 import PageCover from '../../components/pageCover'
 import Footer from '../../components/footer'
 import {Grid,Container,Section} from '../../components/grid'
@@ -17,19 +17,17 @@ export default function EventPage () {
   const router = useRouter()
   const { slug } = router.query
 
-  console.log(router)
-
   return (
     <>
     <HTMLHead title={slug} />
     <div className="w-full bg-black-0/70 backdrop-blur fixed z-20">
       <Link href="/events">
-        <a className="w-14 h-14 lg:w-10 lg:h-10 grid place-items-center text-white hover:text-black-0 lg:bg-white/10 hover:bg-accent">
+        <a className="w-14 h-14 lg:w-10 lg:h-10 grid place-items-center text-white hover:text-black-0 hover:bg-accent">
           <ArrowIcon left className="w-8 h-8" />
         </a>
       </Link>
     </div>
-    <Section className="bg-black-200 py-20 sm:py-28">
+    <Section className="bg-black-200 pt-20 pb-14 sm:pt-28">
       <Container>
         <Grid>
           <div className="col-span-4 md:col-span-3 lg:col-span-3 pb-12">
@@ -50,6 +48,7 @@ export default function EventPage () {
 
           <div className="col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-3 mt-4 sm:mt-8 md:mt-0">
             <div className="w-full aspect-[1/1] bg-slate-500"></div>
+            <span className="font-mono-r text-sm text-white/40" >Lokasi ⸻ </span>
           </div>
 
           <div className="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 pt-4">
