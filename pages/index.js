@@ -156,7 +156,7 @@ function Section4Member () {
               Ut enim ad minim veniam, quis nostrud 
               </p>
               <Button 
-                target="/" 
+                target="/member" 
                 text="Lihat Selengkapnya" 
                 icon={<ArrowIcon right/>} 
                 className="mt-16"
@@ -208,7 +208,7 @@ function Section5Snapshot () {
               Ut enim ad minim veniam, quis nostrud 
               </p>
               <Button 
-                target="/" 
+                target="/snapshot" 
                 text="Lihat Selengkapnya" 
                 icon={<ArrowIcon right/>} 
                 className="mt-16"/>

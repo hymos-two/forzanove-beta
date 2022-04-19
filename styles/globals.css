@@ -37,7 +37,7 @@ body::-webkit-scrollbar-thumb:hover {
 body::-webkit-scrollbar-button:single-button {
   background-color: hsla(0,0%,30%,1);
   display: block;
-  height: 18px;
+  height: 1px;
   width: 16px;
 }
 body::-webkit-scrollbar-button:single-button:hover {

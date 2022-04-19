@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import HTMLHead from '../../components/htmlHead'
@@ -12,8 +12,13 @@ import {Tile} from '../../components/tile'
 import wisudaImg from '../../public/images/events/wisuda.jpg'
 import {ArrowIcon} from '../../components/icons'
 
+
+// STUCK AT CLASS NAVIGATION STATE :(
+// FUCK THIS PROBLEM
+
 export default function Member () {
   const classes = ['MIPA-1','MIPA-2','MIPA-3','IPS-1','IPS-2']
+
   return (
     <>
       <HTMLHead title="Member | Forzanove 09"/>
@@ -21,7 +26,6 @@ export default function Member () {
       <Section1Cover />
       <ClassNavigation classes={classes} />
       <Section2Content classes={classes} />
-      {/* <div className="h-[4000px]"></div> */}
       <Footer min />
     </>
   )
@@ -68,24 +72,12 @@ function Section1Cover (props) {
 
 function ClassNavigation (props) {
   const {classes} = props
-  const router = useRouter()
-  const [isActive,setActive] = useState('')
-
-  function handleClick(active) {
-    setActive(()=>active)
-    router.push(`#${active}`)
-  }
-
-  useEffect(()=>{
-    console.log(router)
-  },[isActive])
-
   return (
     <nav className="sticky top-14 bg-white/10 backdrop-blur flex justify-evenly mt-20 z-20">
       {classes.map((value,i)=>(
-        <a className="h-12 lg:h-9 px-3 lg:px-2 relative grid place-items-center lg:hover:bg-white/10 cursor-pointer" onClick={()=>handleClick(value)} key={i}>
+        <a href={`#${value}`} className="h-12 lg:h-9 px-3 lg:px-2 relative grid place-items-center lg:hover:bg-white/10 cursor-pointer" key={i}>
           <span className="font-mono-r text-sm text-white/60">{value}</span>
-          {isActive == value && <span className="block absolute w-full h-[2px] bg-accent/60"></span>}
+          {/* {isActive == value && <span className="block absolute w-full h-[2px] bg-accent/60"></span>} */}
         </a>
       ))}
     </nav>
@@ -95,9 +87,11 @@ function ClassNavigation (props) {
 
 function Section2Content (props) {
   const {classes} = props
+
   return (
     <>
     {classes.map((value,i)=>(
+      // <Wrapper setActive={setActive} id={value}>
       <Section id={value} className="bg-black-200 pt-24 lg:pt-36 scroll-smooth">
       <Container>
         <Grid>
@@ -126,8 +120,30 @@ function Section2Content (props) {
         </Grid>
       </Container>
     </Section>
+    // </Wrapper>
     ))}
-    
+    <div className="bg-black-200 py-10"></div>
     </>
   )
 }
+
+// function Wrapper (props) {
+//   const {children,setActive,id} = props
+//   const ref = useRef()
+
+//   useEffect(() => {
+//     window.addEventListener('scroll', handleScroll)
+//     return () => window.removeEventListener('scroll', handleScroll)
+//   },[])
+
+//   function handleScroll () {
+//     // console.log(window.pageYOffset >= ref.current.offsetTop && window.pageYOffset <= ref.current.offsetBottom)
+//     // if (window.pageYOffset >= ref.current.offsetTop && window.pageYOffset <= ref.current.offsetBottom ) return console.log(id)
+//     if (window.pageYOffset >= ref.current.offsetTop ) return console.log(ref.current.style)
+
+//   }
+
+//   return (
+//     <div ref={ref}>{children}</div>
+//   )
+// }

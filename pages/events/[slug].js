@@ -22,7 +22,7 @@ export default function EventPage () {
     <HTMLHead title={slug} />
     <div className="w-full bg-black-0/70 backdrop-blur fixed z-20">
       <Link href="/events">
-        <a className="w-14 h-14 lg:w-10 lg:h-10 grid place-items-center text-white hover:text-black-0 hover:bg-accent">
+        <a className="w-14 h-14 lg:w-10 lg:h-10 grid place-items-center text-white hover:bg-white/10">
           <ArrowIcon left className="w-8 h-8" />
         </a>
       </Link>
